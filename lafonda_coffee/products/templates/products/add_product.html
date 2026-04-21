@@ -1,7 +1,14 @@
-Aca aparecera el form
+{%extends 'base.html' %}
 
+{% block content %}
+
+<h1 class="text-3xl font-bold underline">
+      Para agregar un nuevo producto, completa el siguiente formulario:
+</h1>
 <form action="{% url 'add_product' %}", method="post">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit">Guardar</button>
 </form>
+
+{% endblock content %}

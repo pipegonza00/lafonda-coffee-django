@@ -7,7 +7,7 @@ from .models import Product
 class ProductFormView(generic.FormView):
     template_name = 'products/add_product.html'
     form_class = ProductForm
-    success_url = reverse_lazy('add_product')
+    success_url = reverse_lazy('product_list')
 
     def form_valid(self, form):
         form.save()
@@ -23,5 +23,5 @@ class ProductListView(generic.ListView):
         context = {
             'product_list': product_list
         }
-        #print(context['product_list'][0].photo.url)
+        print(context['product_list'][2].photo.url)
         return context

@@ -6,7 +6,7 @@ class Product(models.Model):
     description = models.TextField(max_length=500, verbose_name='Descripcion')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Precio')
     available = models.BooleanField(default=True, verbose_name='Disponible')
-    photo = models.ImageField(upload_to='static/images', null=True, blank=True, verbose_name='Foto')
+    photo = models.ImageField(upload_to='media/', null=True, blank=True, verbose_name='Foto')
     #amount = models.IntegerField(verbose_name='Cantidad')
 
     def __str__(self):
