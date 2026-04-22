@@ -23,5 +23,5 @@ class ProductListView(generic.ListView):
         context = {
             'product_list': product_list
         }
-        print(context['product_list'][2].photo.url)
+
         return context
