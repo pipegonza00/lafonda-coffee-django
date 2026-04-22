@@ -7,6 +7,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
+    {%if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}!</p>
+    {% else %}
+        <p>Welcome, guest! Please <a href="{% url 'login' %}">log in</a>.</p>
+    {% endif %}
     <div class="container mx-auto px-4">
         {% block content %}{% endblock content %}
     </div>
