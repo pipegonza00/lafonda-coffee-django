@@ -18,7 +18,7 @@ class ProductListView(generic.ListView):
     model = Product
 
     def get_context_data(self):
-        product_list = Product.objects.all().order_by('price')
+        product_list = self.model.objects.all().order_by('price')
 
         context = {
             'product_list': product_list
