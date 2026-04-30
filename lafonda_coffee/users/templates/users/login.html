@@ -2,7 +2,7 @@
 {% load tailwind_filters%}
 
 {% block content %}
-<form action="" method="post" class="mx-auto max-w-md space-y-4 rounded-lg border border-gray-300 bg-gray-100 p-6">
+<form action="{% url 'login' %}" method="post" class="mx-auto max-w-md space-y-4 rounded-lg border border-gray-300 bg-gray-100 p-6">
     {% csrf_token %}
     {{form|crispy}}
     <button type="submit" class="text-white block border border-red-600 bg-red-600 px-12 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1">Login</button>

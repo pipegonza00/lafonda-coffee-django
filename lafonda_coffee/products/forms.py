@@ -15,7 +15,7 @@ class ProductForm(forms.Form):
             description=data['description'],
             price=data['price'],
             available=data['available'],
-            photo=data['photo']
+            photo=data.get('photo')
         )
 
         product.save()

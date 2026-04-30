@@ -9,6 +9,12 @@ class ProductFormView(generic.FormView):
     form_class = ProductForm
     success_url = reverse_lazy('product_list')
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['files'] = self.request.FILES
+        print(kwargs['files'])
+        return kwargs
+
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
