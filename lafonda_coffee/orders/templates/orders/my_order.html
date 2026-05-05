@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>My Order</h1>
+
+    <h1 class="text-2xl font-bold mb-4">My Order</h1>
+    {% for order in orders %}
+        
+        {% if not order %}
+            <p>You have no active orders.</p>
+        {% else %}
+            {#{% debug %}#}
+            <p>Order ID: {{ order.id }}</p>
+            <p>Created at: {{ order.created_at }}</p>
+            <p>Total Price: ${{ order.total_price }}</p>
+
+            <h2 class="text-xl font-semibold mt-6 mb-2">Products:</h2>
+            <ul class="list-disc list-inside">
+                {% for item in order.orderproducts.all %}
+                    <li>{{ item.product.name }} - Quantity: {{ item.quantity }} - Price: ${{ item.subtotal_price }}</li>
+                
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+    {% debug %}
+{% endblock %}
